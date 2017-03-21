@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 import {IUserLogin} from './IUserLogin';
 import {LoginService} from "./login.service";
+import {IUserProfile} from "./IUserProfile";
 
 @Component({
     selector: 'app-login',
@@ -24,11 +25,9 @@ export class LoginComponent implements OnInit {
     }
 
     private onSubmit() {
-        console.log(this.user.userName);
-        console.log(this.user.password);
-
-        this._loginService.login(this.user).then((responds)=>{
+        this._loginService.login(this.user).then((responds:IUserProfile)=>{
             console.log(responds);
+            console.log("log")
         })
     }
 
