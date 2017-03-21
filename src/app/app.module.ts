@@ -7,6 +7,11 @@ import {RouterModule, Routes} from '@angular/router';
 
 import 'hammerjs';
 
+import {FakeServerModule} from './fake-server/fake-server.module';
+import {RestModule} from './rest/rest.module';
+
+
+
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
@@ -44,6 +49,8 @@ const appRoutes: Routes = [
         HttpModule,
         JsonpModule,
         MaterialModule,
+        FakeServerModule,
+        RestModule,
         RouterModule.forRoot(appRoutes)
     ],
     providers: [],

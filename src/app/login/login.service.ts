@@ -1,21 +1,23 @@
-import {Injectable} from '@angular/core';
+import {Injectable, EventEmitter} from '@angular/core';
 
 import {IUserLogin} from  './IUserLogin';
 import {IUserProfile} from "./IUserProfile";
 
+import {ApiService} from '../rest/api.service';
+
 @Injectable()
 export class LoginService {
 
-    constructor() {
+    constructor(private _apiService: ApiService) {
     }
 
     login(user: IUserLogin):Promise<IUserProfile> {
 
-        return (new Promise((resolve) => {
-            setTimeout(() => {
-                resolve({name:user.userName});
-            }, 2000);
-        }));
+        var change: EventEmitter<IUserLogin> = new EventEmitter<IUserLogin>();
+
+        change.emit(user);
+
+        return this._apiService.announceLogin(user);
 
     }
 
