@@ -13,12 +13,7 @@ export class LoginService {
 
     login(user: IUserLogin):Promise<IUserProfile> {
 
-        var change: EventEmitter<IUserLogin> = new EventEmitter<IUserLogin>();
-
-        change.emit(user);
-
         return this._apiService.announceLogin(user);
-
     }
 
 }

@@ -14,8 +14,8 @@ export class ApiService {
 
     announceLogin(user: any) {
 
-        return (new Promise((resolve) => {
-            this.loginRequestSource.next({user, resolve});
+        return (new Promise((resolve, reject) => {
+            this.loginRequestSource.next({user, resolve, reject});
         }));
     }
 

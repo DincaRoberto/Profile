@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: start;
+  flex-basis: 40%;
 }
 
 .machine-title-card {

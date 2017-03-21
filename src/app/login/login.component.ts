@@ -31,11 +31,19 @@ export class LoginComponent implements OnInit {
 
         this.loginState = true;
 
-        this._loginService.login(this.user).then((responds:IUserProfile)=>{
+        let promise = this._loginService.login(this.user);
+
+        promise.then((responds:IUserProfile)=>{
             console.log(responds);
-            this.loginState = false;
             console.log("log")
-        })
+        },
+            (err) => {
+
+                console.log(err);
+            }
+        ).then(()=>{
+            this.loginState = false;
+        });
     }
 
 }

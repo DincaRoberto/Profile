@@ -1,5 +1,27 @@
-<p>
-  <button md-button color="primary" (click)="onResolve()">
-      Resolve promise
-  </button>
-</p>
+<div>
+    <md-card-title>Trying to login</md-card-title>
+
+    <md-card-subtitle class="container">
+
+        <div>
+            <span>User Name: {{ subject.user.userName }}</span>
+        </div>
+
+        <div>
+            <span>Password: {{ subject.user.password }}</span>
+        </div>
+
+        <md-divider></md-divider>
+
+    </md-card-subtitle>
+
+
+
+    <button md-button color="primary" (click)="onResolve()">
+        Resolve promise
+    </button>
+
+    <button md-button color="primary" (click)="onReject()">
+        Reject promise
+    </button>
+</div>

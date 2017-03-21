@@ -13,13 +13,15 @@ export class ServerLoginComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.subject);
+
     }
 
     onResolve(){
-        console.log(this.subject);
-
         this.subject.resolve({name: this.subject.user.name})
+    }
+
+    onReject() {
+        this.subject.reject({error: "SomeErrorMessage"});
     }
 
 }
