@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {MaterialModule} from '@angular/material';
 
 import {RestModule} from '../rest/rest.module';
 
@@ -11,6 +12,7 @@ import { ServerPendingComponent } from './server-pending/server-pending.componen
 @NgModule({
     imports: [
         CommonModule,
+        MaterialModule,
         RestModule
     ],
     exports: [DisplayComponent],
