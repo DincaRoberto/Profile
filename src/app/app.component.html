@@ -1,9 +1,21 @@
-<h1>
-  {{title}}
-</h1>
-
-<md-card>
-    I am a card
+<md-card class="title">
+    Server - client connectivity
 </md-card>
 
-<router-outlet></router-outlet>
+
+<div class="connection-container">
+    <div class="machine-container">
+        <md-card class="machine-title-card">
+            <md-card-title>Server</md-card-title>
+        </md-card>
+        <md-card> Details </md-card>
+    </div>
+
+    <div class="machine-container">
+        <md-card class="machine-title-card">
+            <md-card-title>Client</md-card-title>
+        </md-card>
+        <md-card> <router-outlet></router-outlet> </md-card>
+    </div>
+</div>
+

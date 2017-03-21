@@ -1,0 +1,21 @@
+
+.title {
+  margin-bottom: 16px;
+}
+
+.connection-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.machine-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.machine-title-card {
+  margin-bottom: 16px;
+}
