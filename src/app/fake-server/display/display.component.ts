@@ -32,6 +32,10 @@ export class DisplayComponent implements OnInit {
 
     }
 
+    onDone = (()=>{
+        this.displayTemplate = '';
+    });
+
     ngOnInit() {
     }
 

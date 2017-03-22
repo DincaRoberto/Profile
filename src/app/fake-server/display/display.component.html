@@ -1,6 +1,6 @@
 
 
 <div [ngSwitch]="displayTemplate">
-    <server-login *ngSwitchCase="'login'" [subject]="subject"></server-login>
+    <server-login *ngSwitchCase="'login'" [subject]="subject" [done]="onDone" ></server-login>
     <server-pending *ngSwitchCase="''" ></server-pending>
 </div>

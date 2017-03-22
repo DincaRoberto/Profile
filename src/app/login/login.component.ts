@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
     private user: IUserLogin;
     private loginState: boolean;
+    private errorMessage: string;
 
     constructor(private _loginService: LoginService) {
         this.user = {
@@ -38,11 +39,12 @@ export class LoginComponent implements OnInit {
             console.log("log")
         },
             (err) => {
-
+                this.errorMessage = err.error;
                 console.log(err);
             }
         ).then(()=>{
             this.loginState = false;
+
         });
     }
 

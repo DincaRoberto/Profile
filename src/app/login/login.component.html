@@ -8,6 +8,10 @@
         <input mdInput placeholder="Password" name="password" type="password" required [(ngModel)]="user.password">
     </md-input-container>
 
+    <div *ngIf="errorMessage" color="warn">
+       {{ errorMessage }}
+    </div>
+
     <div *ngIf="!loginState">
         <button md-raised-button color="primary" type="submit" [disabled]="!loginForm.form.valid" >Submit</button>
 

@@ -8,6 +8,7 @@ import {Component, OnInit, Input} from '@angular/core';
 export class ServerLoginComponent implements OnInit {
 
     @Input() subject: any;
+    @Input() done:any;
 
     constructor() {
     }
@@ -17,11 +18,20 @@ export class ServerLoginComponent implements OnInit {
     }
 
     onResolve(){
-        this.subject.resolve({name: this.subject.user.name})
+
+        var result = {
+            name: this.subject.user.userName
+        };
+
+        console.log(this.subject.user.userName);
+
+        this.subject.resolve(result);
+        this.done();
     }
 
     onReject() {
         this.subject.reject({error: "SomeErrorMessage"});
+        this.done();
     }
 
 }

@@ -1,27 +1,28 @@
 <div>
     <md-card-title>Trying to login</md-card-title>
 
-    <md-card-subtitle class="container">
+    <md-card-subtitle *ngIf="subject">
 
         <div>
-            <span>User Name: {{ subject.user.userName }}</span>
+            <span>User Name: <span class="subtitle-values">{{ subject.user.userName }}</span></span>
         </div>
 
         <div>
-            <span>Password: {{ subject.user.password }}</span>
+            <span>Password: <span class="subtitle-values">{{ subject.user.password }}</span></span>
         </div>
 
         <md-divider></md-divider>
 
     </md-card-subtitle>
 
+    <md-card-actions>
+        <button md-raised-button color="primary" (click)="onResolve()">
+            Resolve promise
+        </button>
 
+        <button md-raised-button color="warn" (click)="onReject()">
+            Reject promise
+        </button>
+    </md-card-actions>
 
-    <button md-button color="primary" (click)="onResolve()">
-        Resolve promise
-    </button>
-
-    <button md-button color="primary" (click)="onReject()">
-        Reject promise
-    </button>
 </div>

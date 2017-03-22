@@ -3,3 +3,7 @@
   flex-flow: column;
   align-items: center;
 }
+
+.subtitle-values{
+  color:black;
+}
