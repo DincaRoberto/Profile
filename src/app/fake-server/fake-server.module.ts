@@ -8,6 +8,7 @@ import { RestModule } from '../rest/rest.module';
 import { DisplayComponent } from './display/display.component';
 import { ServerLoginComponent } from './server-login/server-login.component';
 import { ServerPendingComponent } from './server-pending/server-pending.component';
+import { ServerRegisterComponent } from './server-register/server-register.component';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { ServerPendingComponent } from './server-pending/server-pending.componen
         FormsModule
     ],
     exports: [DisplayComponent],
-    declarations: [DisplayComponent, ServerLoginComponent, ServerPendingComponent]
+    declarations: [DisplayComponent, ServerLoginComponent, ServerPendingComponent, ServerRegisterComponent]
 })
 export class FakeServerModule {
 }

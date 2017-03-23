@@ -1,22 +1,17 @@
 import {Injectable} from '@angular/core';
 
 import {IUserRegister} from './IUserRegister';
+import { ApiService } from "../../rest/api.service";
 
 @Injectable()
 export class RegisterService {
 
-    constructor() {
+    constructor(private _apiService: ApiService) {
     }
 
-    register(user: IUserRegister): Promise<string> {
+    register(user: IUserRegister): Promise<any> {
 
-        return (new Promise((resolve)=> {
-            setTimeout(()=> {
-                console.log(user);
-                resolve("444")
-            }, 2000)
-        }));
-
+        return this._apiService.announceRegister(user);
     }
 
 }

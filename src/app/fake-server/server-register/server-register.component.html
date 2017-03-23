@@ -1,0 +1,21 @@
+<div>
+    <md-card-title>Trying to register</md-card-title>
+
+    <md-card-subtitle *ngIf="subject">
+
+        <div>
+            <span>First Name: <span class="subtitle-values">{{ subject.user.firstName }}</span></span>
+        </div>
+
+        <div>
+            <span>Last Name: <span class="subtitle-values">{{ subject.user.lastName }}</span></span>
+        </div>
+
+        <div>
+            <span>Email: <span class="subtitle-values">{{ subject.user.email }}</span></span>
+        </div>
+
+        <md-divider></md-divider>
+
+    </md-card-subtitle>
+</div>

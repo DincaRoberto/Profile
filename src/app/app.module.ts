@@ -24,6 +24,7 @@ import { ClientModule } from "./client/client.module";
         JsonpModule,
         MaterialModule,
         RouterModule,
+
         FakeServerModule,
         RestModule,
         ClientModule

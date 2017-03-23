@@ -23,11 +23,17 @@ export class DisplayComponent implements OnInit {
 
                 this.subject = subject;
 
-                // setTimeout(() => {
-                //     subject.resolve({name: subject.user.userName});
-                // }, 2000);
-
                 console.log('Server side ', subject);
+            });
+
+        _apiService.registerRequest$.subscribe(
+            (subject) => {
+
+                this.displayTemplate = 'register';
+
+                this.subject = subject;
+
+                console.log('Server side register', subject);
             });
 
     }
