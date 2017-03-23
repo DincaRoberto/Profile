@@ -1,9 +1,9 @@
 import {Injectable, EventEmitter} from '@angular/core';
+import { ApiService } from "../../rest/api.service";
+import { IUserLogin } from "./IUserLogin";
+import { IUserProfile } from "../../IUserProfile";
 
-import {IUserLogin} from  './IUserLogin';
-import {IUserProfile} from "../IUserProfile";
 
-import {ApiService} from '../rest/api.service';
 
 @Injectable()
 export class LoginService {

@@ -12,15 +12,15 @@
        {{ errorMessage }}
     </div>
 
-    <div *ngIf="!loginState">
+    <span *ngIf="!loginState">
         <button md-raised-button color="primary" type="submit" [disabled]="!loginForm.form.valid" >Submit</button>
-
-        <button md-raised-button routerLink="/register"> Register </button>
-    </div>
+    </span>
 
     <div *ngIf="loginState">
         <md-spinner></md-spinner>
     </div>
 </form>
+
+<button md-raised-button routerLink="/register"> Register </button>
 
 

@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
-import {ProfileService} from '../profile.service';
-import {IUserProfile} from "../IUserProfile";
-import {Router} from "@angular/router";
+import { IUserProfile } from "../../IUserProfile";
+import { ProfileService } from "../profile.service";
+
 
 @Component({
     selector: 'app-profile',
@@ -14,7 +15,7 @@ export class ProfileComponent implements OnInit {
 
     private profile: IUserProfile;
 
-    constructor(private _profileService: ProfileService,private _router: Router,) {
+    constructor(private _profileService: ProfileService, private _router: Router,) {
         this.profile = _profileService.currentProfile;
     }
 
@@ -22,7 +23,7 @@ export class ProfileComponent implements OnInit {
 
     }
 
-    private onLogout = () =>{
+    private onLogout = () => {
         this._router.navigate(['']);
     }
 

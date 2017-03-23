@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { IUserLogin } from './IUserLogin';
+
+import { IUserLogin } from "./IUserLogin";
+import { IUserProfile } from "../../IUserProfile";
+
 import { LoginService } from "./login.service";
-import { IUserProfile } from "../IUserProfile";
 import { ProfileService } from "../profile.service";
+
+
+
 
 @Component({
     selector: 'app-login',

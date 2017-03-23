@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
+import { IUserProfile } from "../IUserProfile";
 
-import {IUserProfile} from "./IUserProfile";
+
 
 @Injectable()
 export class ProfileService {
