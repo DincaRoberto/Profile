@@ -17,6 +17,9 @@
 
         <md-divider></md-divider>
 
+    </md-card-subtitle>
+
+    <md-card-content>
         <form (ngSubmit)="onReject()" #rejectForm="ngForm">
             <md-input-container>
                 <input type="text" mdInput required placeholder="Error message" [(ngModel)]="errorMessage" name="errorMessage">
@@ -26,8 +29,7 @@
                 Reject promise
             </button>
         </form>
-
-    </md-card-subtitle>
+    </md-card-content>
 
     <md-card-actions>
         <button md-raised-button color="primary" (click)="onResolve()">

@@ -20,7 +20,7 @@ import { ProfileService } from "../profile.service";
 export class LoginComponent implements OnInit {
 
     private user: IUserLogin;
-    private loginState: boolean;
+    private loadingState: boolean;
     private errorMessage: string;
 
     constructor(private _loginService: LoginService,
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
             password: ""
         };
 
-        this.loginState = false;
+        this.loadingState = false;
     }
 
     ngOnInit() {
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
 
     private onSubmit() {
 
-        this.loginState = true;
+        this.loadingState = true;
 
         this._loginService.login(this.user)
             .then(this.onSubmitSuccess, this.onSubmitError)
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
     };
 
     private onSubmitAnyResponse = () => {
-        this.loginState = false;
+        this.loadingState = false;
     }
 
 }

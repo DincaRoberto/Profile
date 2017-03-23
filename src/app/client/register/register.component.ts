@@ -13,7 +13,7 @@ import { IUserRegister } from "./IUserRegister";
 export class RegisterComponent implements OnInit {
 
     private user: IUserRegister;
-    private loginState: boolean;
+    private loadingState: boolean;
     private errorMessage: string;
 
     constructor(private _registerService: RegisterService) {
@@ -22,14 +22,14 @@ export class RegisterComponent implements OnInit {
             lastName: "",
             email: ""
         };
-        this.loginState = false;
+        this.loadingState = false;
     }
 
     ngOnInit() {
     }
 
     onSubmit() {
-        this.loginState = true;
+        this.loadingState = true;
         this._registerService.register(this.user)
             .then(this.onSubmitSuccess, this.onSubmitError)
             .then(this.onSubmitAnyResponse);
@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
     };
 
     private onSubmitAnyResponse = () => {
-        this.loginState = false;
+        this.loadingState = false;
     }
 
 }

@@ -15,11 +15,11 @@
         {{ errorMessage }}
     </div>
 
-    <span *ngIf="!loginState">
+    <span *ngIf="!loadingState">
         <button md-raised-button color="primary" type="submit"> Submit </button>
     </span>
 
-    <div *ngIf="loginState">
+    <div *ngIf="loadingState">
         <md-spinner></md-spinner>
     </div>
 </form>
