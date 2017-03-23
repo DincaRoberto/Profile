@@ -1,4 +1,4 @@
-<form (submit)="onSubmit()" #registerForm="ngForm">
+<form (submit)="onSubmit()" #registerForm="ngForm" *ngIf="!success">
     <md-input-container>
         <input mdInput type="text" required placeholder="First name" name="firstName" [(ngModel)]="user.firstName">
     </md-input-container>
@@ -23,3 +23,11 @@
         <md-spinner></md-spinner>
     </div>
 </form>
+
+<div *ngIf="success">
+    <md-card-title> {{ success.status }} </md-card-title>
+    <md-card-subtitle>Login with your new credentials</md-card-subtitle>
+    <md-card-actions>
+        <button md-raised-button color="primary" type="submit"routerLink="/login" > Login </button>
+    </md-card-actions>
+</div>

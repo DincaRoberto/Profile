@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
     private user: IUserRegister;
     private loadingState: boolean;
     private errorMessage: string;
+    private success: string;
 
     constructor(private _registerService: RegisterService) {
         this.user = {
@@ -36,6 +37,7 @@ export class RegisterComponent implements OnInit {
     }
 
     private onSubmitSuccess = (responds:any) => {
+        this.success = responds;
         console.log(responds);
     };
 
