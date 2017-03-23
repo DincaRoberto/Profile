@@ -20,7 +20,7 @@ import { appRoutes } from "./routing";
         FormsModule,
         RouterModule.forRoot(appRoutes)
     ],
-    exports: [LoginComponent, ProfileComponent, RegisterComponent],
+    exports: [],
     declarations: [LoginComponent, ProfileComponent, RegisterComponent, PageNotFoundComponent],
     providers:[ProfileService]
 })
