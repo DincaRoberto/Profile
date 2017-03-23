@@ -16,11 +16,14 @@ import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import { ProfileComponent } from './profile/profile.component';
+import {ProfileService} from "./profile.service";
 
 
 const appRoutes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
+    {path: 'profile', component: ProfileComponent, data:{profile:"profileData"}},
     //{path: 'hero/:id', component: HeroDetailComponent},
     // {
     //     path: 'heroes',
@@ -41,7 +44,8 @@ const appRoutes: Routes = [
         AppComponent,
         LoginComponent,
         RegisterComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        ProfileComponent
     ],
     imports: [
         BrowserModule,
@@ -53,7 +57,7 @@ const appRoutes: Routes = [
         RestModule,
         RouterModule.forRoot(appRoutes)
     ],
-    providers: [],
+    providers: [ProfileService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

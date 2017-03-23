@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import {IUserLogin} from './IUserLogin';
 import {LoginService} from "./login.service";
-import {IUserProfile} from "./IUserProfile";
+import {IUserProfile} from "../IUserProfile";
+import {ProfileService} from "../profile.service";
 
 @Component({
     selector: 'app-login',
@@ -16,7 +18,10 @@ export class LoginComponent implements OnInit {
     private loginState: boolean;
     private errorMessage: string;
 
-    constructor(private _loginService: LoginService) {
+    constructor(
+        private _loginService: LoginService,
+        private _router: Router,
+        private _profileService:ProfileService) {
         this.user = {
             userName:"",
             password:""
@@ -34,18 +39,21 @@ export class LoginComponent implements OnInit {
 
         let promise = this._loginService.login(this.user);
 
-        promise.then((responds:IUserProfile)=>{
-            console.log(responds);
-            console.log("log")
-        },
-            (err) => {
-                this.errorMessage = err.error;
-                console.log(err);
-            }
-        ).then(()=>{
-            this.loginState = false;
+        promise.then(this.onSubmitSuccess, this.onSubmitError).then(this.onSubmitAnyResponse);
+    }
 
-        });
+    private onSubmitSuccess=(responds:IUserProfile)=>{
+        this._profileService.setCurrentProfile(Object.assign({},responds));
+        this._router.navigate(['/profile']);
+    };
+
+    private onSubmitError = (err) => {
+        this.errorMessage = err.error;
+        console.log(err);
+    };
+
+    private onSubmitAnyResponse = () =>{
+        this.loginState = false;
     }
 
 }
