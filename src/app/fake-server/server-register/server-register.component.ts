@@ -10,6 +10,8 @@ export class ServerRegisterComponent implements OnInit {
     @Input() subject: any;
     @Input() done: any;
 
+    errorMessage:string = "SomeErrorMessage";
+
     constructor() {
     }
 
@@ -18,18 +20,12 @@ export class ServerRegisterComponent implements OnInit {
 
     onResolve(){
 
-        var result = {
-            name: this.subject.user.userName
-        };
-
-        console.log(this.subject.user.userName);
-
-        this.subject.resolve(result);
+        this.subject.resolve({status:'Success'});
         this.done();
     }
 
     onReject() {
-        //this.subject.reject({error: this.errorMessage});
+        this.subject.reject({error: this.errorMessage});
         this.done();
     }
 

@@ -17,5 +17,21 @@
 
         <md-divider></md-divider>
 
+        <form (ngSubmit)="onReject()" #rejectForm="ngForm">
+            <md-input-container>
+                <input type="text" mdInput required placeholder="Error message" [(ngModel)]="errorMessage" name="errorMessage">
+            </md-input-container>
+
+            <button [disabled]="!rejectForm.form.valid" md-raised-button color="warn" (click)="onReject()" type="submit">
+                Reject promise
+            </button>
+        </form>
+
     </md-card-subtitle>
+
+    <md-card-actions>
+        <button md-raised-button color="primary" (click)="onResolve()">
+            Resolve promise
+        </button>
+    </md-card-actions>
 </div>
