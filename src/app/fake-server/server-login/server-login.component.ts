@@ -10,6 +10,8 @@ export class ServerLoginComponent implements OnInit {
     @Input() subject: any;
     @Input() done:any;
 
+    errorMessage:string = "SomeErrorMessage";
+
     constructor() {
     }
 
@@ -30,7 +32,7 @@ export class ServerLoginComponent implements OnInit {
     }
 
     onReject() {
-        this.subject.reject({error: "SomeErrorMessage"});
+        this.subject.reject({error: this.errorMessage});
         this.done();
     }
 

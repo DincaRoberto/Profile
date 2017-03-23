@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import {IUserLogin} from './IUserLogin';
-import {LoginService} from "./login.service";
-import {IUserProfile} from "../IUserProfile";
-import {ProfileService} from "../profile.service";
+import { IUserLogin } from './IUserLogin';
+import { LoginService } from "./login.service";
+import { IUserProfile } from "../IUserProfile";
+import { ProfileService } from "../profile.service";
 
 @Component({
     selector: 'app-login',
@@ -18,13 +18,12 @@ export class LoginComponent implements OnInit {
     private loginState: boolean;
     private errorMessage: string;
 
-    constructor(
-        private _loginService: LoginService,
-        private _router: Router,
-        private _profileService:ProfileService) {
+    constructor(private _loginService: LoginService,
+                private _router: Router,
+                private _profileService: ProfileService) {
         this.user = {
-            userName:"",
-            password:""
+            userName: "",
+            password: ""
         };
 
         this.loginState = false;
@@ -33,17 +32,18 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
     }
 
+
     private onSubmit() {
 
         this.loginState = true;
 
-        let promise = this._loginService.login(this.user);
-
-        promise.then(this.onSubmitSuccess, this.onSubmitError).then(this.onSubmitAnyResponse);
+        this._loginService.login(this.user)
+            .then(this.onSubmitSuccess, this.onSubmitError)
+            .then(this.onSubmitAnyResponse);
     }
 
-    private onSubmitSuccess=(responds:IUserProfile)=>{
-        this._profileService.setCurrentProfile(Object.assign({},responds));
+    private onSubmitSuccess = (responds: IUserProfile)=> {
+        this._profileService.setCurrentProfile(Object.assign({}, responds));
         this._router.navigate(['/profile']);
     };
 
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
         console.log(err);
     };
 
-    private onSubmitAnyResponse = () =>{
+    private onSubmitAnyResponse = () => {
         this.loginState = false;
     }
 
