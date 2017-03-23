@@ -11,6 +11,8 @@ import { RegisterComponent } from "./register/register.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 import { appRoutes } from "./routing";
+import { RestModule } from "../rest/rest.module";
+import { DisplayComponent } from './display/display.component';
 
 @NgModule({
     imports: [
@@ -18,10 +20,11 @@ import { appRoutes } from "./routing";
         RouterModule,
         MaterialModule,
         FormsModule,
+        RestModule,
         RouterModule.forRoot(appRoutes)
     ],
-    exports: [],
-    declarations: [LoginComponent, ProfileComponent, RegisterComponent, PageNotFoundComponent],
+    exports: [DisplayComponent],
+    declarations: [LoginComponent, ProfileComponent, RegisterComponent, PageNotFoundComponent, DisplayComponent],
     providers:[ProfileService]
 })
 export class ClientModule {
