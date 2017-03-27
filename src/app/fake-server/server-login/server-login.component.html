@@ -17,22 +17,34 @@
 
     <md-card-content>
 
-        <form (ngSubmit)="onReject()" #rejectForm="ngForm">
+        <form (ngSubmit)="onResolve()" #acceptForm="ngForm">
+
+            <button md-raised-button color="primary" type="submit">
+                Resolve promise
+            </button>
+
+        </form>
+
+    </md-card-content>
+
+    <md-card-content>
+
+        <form (ngSubmit)="onReject()" #rejectForm="ngForm" class="">
+
             <md-input-container>
                 <input type="text" mdInput required placeholder="Error message" [(ngModel)]="errorMessage" name="errorMessage">
             </md-input-container>
 
-            <button [disabled]="!rejectForm.form.valid" md-raised-button color="warn" (click)="onReject()" type="submit">
+            <button [disabled]="!rejectForm.form.valid" md-raised-button color="warn" type="submit">
                 Reject promise
             </button>
+
         </form>
 
     </md-card-content>
 
     <md-card-actions>
-        <button md-raised-button color="primary" (click)="onResolve()">
-            Resolve promise
-        </button>
+
     </md-card-actions>
 
 </div>

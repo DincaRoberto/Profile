@@ -7,3 +7,13 @@
 .subtitle-values{
   color:black;
 }
+
+form {
+  display:flex;
+  flex-direction:column;
+  align-items: center
+}
+
+form > * {
+  margin: 8px;
+}
